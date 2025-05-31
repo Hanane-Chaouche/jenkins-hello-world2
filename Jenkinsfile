@@ -1,15 +1,18 @@
-         pipeline {
-          agent any
-          stages {
-              stage('Build') {
-                  steps {
-                      script {
-                          // Choisissez la commande en fonction de votre script
-                          bat 'python hello.py' // Pour Python
-                          bat 'javac HelloWorld.java && java HelloWorld' // Pour Java
-                      }
-                  }
-              }
-          }
-      }
+pipeline {
+    agent any
+    environment {
+        JAVA_HOME = 'C:\\Program Files\\Java\\jdk-17' // ← Chemin vers ton Java 17
+        PATH = "${JAVA_HOME}\\bin;${env.PATH}"
+    }
+    stages {
+        stage('Build') {
+            steps {
+                script {
+                    bat 'python hello.py'
+                    bat 'javac HelloWorld.java && java HelloWorld'
+                }
+            }
+        }
+    }
+}
 
