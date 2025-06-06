@@ -1,7 +1,4 @@
-hello hello hello hello hellov
-n
-v
-
+hello
 # changer jenkins-hello-world2   
 changement
 csf
